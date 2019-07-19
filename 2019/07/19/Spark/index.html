@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="IamZY">
 <meta property="og:description" content="内含模块 Spark SQL Spark Streaming Spark mllib Spark graha   spark集群模式 local本地模式   不需要启动任何进程。同一jvm中使用多线程模拟. standalone独立模式   启动进程   master   worker mesos- yarn  RDD弹性分布式数据集  是Spark的基本抽象 表示为不可变的 分区化的集合 可用">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-07-19T01:47:45.910Z">
+<meta property="og:updated_time" content="2019-07-19T01:49:52.950Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark">
 <meta name="twitter:description" content="内含模块 Spark SQL Spark Streaming Spark mllib Spark graha   spark集群模式 local本地模式   不需要启动任何进程。同一jvm中使用多线程模拟. standalone独立模式   启动进程   master   worker mesos- yarn  RDD弹性分布式数据集  是Spark的基本抽象 表示为不可变的 分区化的集合 可用">
@@ -230,17 +230,27 @@
 </li>
 </ul>
 <h2 id="安装Spark-需要提前安装Scala"><a href="#安装Spark-需要提前安装Scala" class="headerlink" title="安装Spark(需要提前安装Scala)"></a>安装Spark(需要提前安装Scala)</h2><ul>
-<li>下载spark软件包<pre><code>http://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-2.4.0/spark-2.4.0-bin-hadoop2.7.tgz</code></pre></li>
-<li>tar<pre><code>$&gt;tar -xzvf spark-2.4.0-bin-hadoop2.7.tgz -C /app</code></pre></li>
-<li>创建软连接<pre><code>$&gt;cd /app
-  $&gt;ln -sfT spark-2.4.0-bin-hadoop2.7 spark</code></pre></li>
-<li>配置环境变量<pre><code>$&gt;sudo nano /etc/profile 
-  ...
-  #spark
-  export SPARK_HOME=/hadoop/home/app/spark
-  export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin</code></pre></li>
-<li>生效环境变量<pre><code>$&gt;source /etc/profile</code></pre></li>
-<li>验证spark<pre><code>$&gt;spark-shell</code></pre></li>
+<li><p>下载spark软件包</p>
+<pre><code>http://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-2.4.0/spark-2.4.0-bin-hadoop2.7.tgz</code></pre></li>
+<li><p>tar</p>
+<pre><code>&gt; $&gt;tar -x zvf spark-2.4.0-bin-hadoop2.7.tgz -C /app</code></pre></li>
+<li><p>创建软连接</p>
+<blockquote>
+<p>$&gt;cd /app<br>$&gt;ln -sfT spark-2.4.0-bin-hadoop2.7 spark</p>
+</blockquote>
+</li>
+<li><p>配置环境变量</p>
+<blockquote>
+<p>$&gt;sudo nano /e tc/profile </p>
+<pre><code>...
+#spark
+export SPARK_HOME=/hadoop/home/app/spark
+export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin</code></pre></blockquote>
+</li>
+<li><p>生效环境变量</p>
+<pre><code>&gt; $&gt;source /etc/profile</code></pre></li>
+<li><p>验证spark</p>
+<pre><code>&gt; $&gt;spark-shell </code></pre></li>
 </ul>
 <blockquote>
 <p>sc.textFile(“file:///home/hadoop/hello.txt”).flatMap(<em>.split(“ “)).map((__,1)).reduceByKey(</em> <strong>_+ _</strong>)</p>
